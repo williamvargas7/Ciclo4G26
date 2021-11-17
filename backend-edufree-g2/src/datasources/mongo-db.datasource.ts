@@ -4,7 +4,7 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'mongoDB',
   connector: 'mongodb',
-  url: 'mongodb://EdufreeG2:abcde@clustergrupo2-shard-00-00.fwwwb.mongodb.net:27017,clustergrupo2-shard-00-01.fwwwb.mongodb.net:27017,clustergrupo2-shard-00-02.fwwwb.mongodb.net:27017/BDG2?ssl=true&replicaSet=atlas-yco43o-shard-0&authSource=admin&retryWrites=true&w=majority',
+  url: 'mongodb+srv://William:Vargas2021*@cluster01.4fvpi.mongodb.net/BDgrupo26',
   host: '',
   port: 0,
   user: '',
