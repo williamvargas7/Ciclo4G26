@@ -12,4 +12,4 @@ export * from './asignatura.controller';
 export * from './grupo.controller';
 export * from './usuario.controller';
 export * from './perfil.controller';
-export * from './usurio-por-grupo.controller';
+

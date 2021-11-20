@@ -19,10 +19,17 @@ export class GrupoRepository extends DefaultCrudRepository<
 
   public readonly asignatura: BelongsToAccessor<Asignatura, typeof Grupo.prototype.id>;
 
+  public readonly usuarios: HasManyThroughRepositoryFactory<Usuario, typeof Usuario.prototype.id,
+          UsuarioPorGrupo,
+          typeof Grupo.prototype.id
+        >;
+
   constructor(
     @inject('datasources.mongoDB') dataSource: MongoDbDataSource, @repository.getter('UsuarioPorGrupoRepository') protected usuarioPorGrupoRepositoryGetter: Getter<UsuarioPorGrupoRepository>, @repository.getter('UsuarioRepository') protected usuarioRepositoryGetter: Getter<UsuarioRepository>, @repository.getter('AsignaturaRepository') protected asignaturaRepositoryGetter: Getter<AsignaturaRepository>,
   ) {
     super(Grupo, dataSource);
+    this.usuarios = this.createHasManyThroughRepositoryFactoryFor('usuarios', usuarioRepositoryGetter, usuarioPorGrupoRepositoryGetter,);
+    this.registerInclusionResolver('usuarios', this.usuarios.inclusionResolver);
     this.asignatura = this.createBelongsToAccessorFor('asignatura', asignaturaRepositoryGetter,);
     this.registerInclusionResolver('asignatura', this.asignatura.inclusionResolver);
     this.usuariosgrupo = this.createHasManyThroughRepositoryFactoryFor('usuariosgrupo', usuarioRepositoryGetter, usuarioPorGrupoRepositoryGetter,);

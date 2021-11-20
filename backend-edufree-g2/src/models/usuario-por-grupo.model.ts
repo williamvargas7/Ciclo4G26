@@ -10,18 +10,6 @@ export class UsuarioPorGrupo extends Entity {
   id?: string;
 
   @property({
-    type: 'string',
-    required: true,
-  })
-  GrupoId: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  UsuarioId: string;
-
-  @property({
     type: 'number',
     required: true,
   })
