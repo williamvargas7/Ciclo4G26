@@ -1,5 +1,7 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, model, property, hasMany, belongsTo} from '@loopback/repository';
+import {Grupo} from './grupo.model';
 import {Perfil} from './perfil.model';
+import {UsuarioPorGrupo} from './usuario-por-grupo.model';
 
 @model()
 export class Usuario extends Entity {
@@ -85,6 +87,11 @@ export class Usuario extends Entity {
     type: 'boolean',
   })
   Incapacidad?: boolean;
+
+  @property({
+    type: 'date',
+  })
+  FechaCreacion?: string;
 
   @hasMany(() => Perfil)
   perfils: Perfil[];

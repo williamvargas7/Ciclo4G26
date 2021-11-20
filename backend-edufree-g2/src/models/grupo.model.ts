@@ -1,6 +1,6 @@
 import {Entity, model, property, hasMany, belongsTo} from '@loopback/repository';
-import {Usuario} from './usuario.model';
 import {Asignatura} from './asignatura.model';
+import {Usuario} from './usuario.model';
 import {UsuarioPorGrupo} from './usuario-por-grupo.model';
 
 @model()
@@ -41,6 +41,11 @@ export class Grupo extends Entity {
     required: true,
   })
   IdDocente: string;
+
+  @property({
+    type: 'date',
+  })
+  FechaCreacion?: string;
 
   @belongsTo(() => Asignatura)
   asignaturaId: string;

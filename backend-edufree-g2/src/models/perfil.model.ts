@@ -28,6 +28,11 @@ export class Perfil extends Entity {
   })
   Modulos: string;
 
+  @property({
+    type: 'date',
+  })
+  FechaCreacion?: string;
+
   @belongsTo(() => Usuario)
   usuarioId: string;
 

@@ -43,7 +43,7 @@ export class GrupoUsuarioController {
     @param.path.string('id') id: string,
     @param.query.object('filter') filter?: Filter<Usuario>,
   ): Promise<Usuario[]> {
-    return this.grupoRepository.usuariosgrupo(id).find(filter);
+    return this.grupoRepository.usuarios(id).find(filter);
   }
 
   @post('/grupos/{id}/usuarios', {
@@ -67,7 +67,7 @@ export class GrupoUsuarioController {
       },
     }) usuario: Omit<Usuario, 'id'>,
   ): Promise<Usuario> {
-    return this.grupoRepository.usuariosgrupo(id).create(usuario);
+    return this.grupoRepository.usuarios(id).create(usuario);
   }
 
   @patch('/grupos/{id}/usuarios', {
@@ -90,7 +90,7 @@ export class GrupoUsuarioController {
     usuario: Partial<Usuario>,
     @param.query.object('where', getWhereSchemaFor(Usuario)) where?: Where<Usuario>,
   ): Promise<Count> {
-    return this.grupoRepository.usuariosgrupo(id).patch(usuario, where);
+    return this.grupoRepository.usuarios(id).patch(usuario, where);
   }
 
   @del('/grupos/{id}/usuarios', {
@@ -105,6 +105,6 @@ export class GrupoUsuarioController {
     @param.path.string('id') id: string,
     @param.query.object('where', getWhereSchemaFor(Usuario)) where?: Where<Usuario>,
   ): Promise<Count> {
-    return this.grupoRepository.usuariosgrupo(id).delete(where);
+    return this.grupoRepository.usuarios(id).delete(where);
   }
 }
