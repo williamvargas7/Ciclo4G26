@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 interface Usuario{
-  
+  codigo:string;
+  contrasenia:string;
 }
 
 @Component({
@@ -11,16 +13,29 @@ interface Usuario{
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  titulo="Login Edufree G26";
+
+  formGroup: any;
+
+  titulo="Login Edufree G2";
+
+  /*usuariologin: Usuario={codigo:'',contrasenia:''};
   codigoUsuario="";
-  contrasenia="";
-  constructor() { }
+  contrasenia="";*/
+
+  constructor() {
+    this.formGroup=new FormGroup({
+      codigo: new FormControl(''),
+      contrasenia: new FormControl(''),
+    });
+
+   }
 
   ngOnInit(): void {
   }
 
   mostrarInfo(): void {
-    alert("El correo del usuario es: "+this.codigoUsuario);
+    //alert("El correo del usuario es: "+this.usuariologin.codigo);
   } 
+  
 
 }

@@ -1,14 +1,30 @@
-.cls-login{
-    display: grid;
-}
-.cls-contain-form {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
+.cls-login {
+    max-width: 100%;
+    position: relative;
+    margin: 0;
+    // z-index: -1;
+    
+    h1 {
+        text-align: start;
+        font-size: 30px;
+    }
 
-.cls-form{
-display: flex;
-align-items: center;
-justify-content: center;
+    .cls-container-form {
+        background: #fff;
+        width: 300px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+
+    .cls-image {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 1000%;
+        height: auto;
+        z-index: -1;
+    }
 }
