@@ -18,13 +18,15 @@ import {
   response,
 } from '@loopback/rest';
 import {Usuario} from '../models';
-import {UsuarioRepository} from '../repositories';
+import { UsuarioRepository } from '../repositories';
 
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
     public usuarioRepository : UsuarioRepository,
   ) {}
+
+    
 
   @post('/usuarios')
   @response(200, {
